@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% set app_name = 'Eryri' %}
+{% set placeholder = """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.""" %}
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ app_name }}</title>
+{% for css_ext_path in [
+    'fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,700italic,400italic',
+    'netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'
+] %}<link rel="stylesheet" href="//{{ css_ext_path }}"/>{% endfor %}
+{% for css_loc_path in [
+    'css/common.css',
+    'css/user.css'
+] %}<link rel="stylesheet" href="{{ url_for('static', filename=css_loc_path) }}"/>{% endfor %}
+{% for js_ext_path in [
+    'ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js',
+    'ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js',
+    'netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'
+] %}<script src="//{{ js_ext_path }}"></script>{% endfor %}
+{% for js_com_path in [
+    'js/com/raphael.js',
+    'js/com/event.js',
+    'js/com/widgets.js',
+    'js/com/measure.js',
+    'js/m/user.js'
+] %}<script src="{{ url_for('static', filename=js_com_path) }}"></script>{% endfor %}
+</head>
+<body>
+<header class="navbar navbar-default navbar-fixed-top" role="banner">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-main">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">{{ app_name }}</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="nav-main">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a>About</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</header>
+<article class="container">
+    <h2 class="name" data-widget="editable" data-placeholder="A masterpiece"></h2>
+    <div class="row">
+        <div class="col-sm-3">
+            <p class="author" data-widget="editable" data-placeholder="Author's name"></p>
+        </div>
+        <div class="col-sm-9">
+            <p class="description" data-widget="editable" data-placeholder="The description of this masterpiece"></p>
+        </div>
+    </div>
+    <div class="sheet"></div>
+</article>
+</body>
+</html>

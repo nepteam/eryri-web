@@ -1,0 +1,45 @@
+body {
+    font-family: "Roboto", "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-top: 70px;
+}
+
+input, textarea {
+    font-family: "Roboto", "Helvetica Neue",Helvetica,Arial,sans-serif;
+    resize: none;
+}
+
+/***** Widgets *****/
+[data-placeholder]:empty {
+    cursor: text;
+}
+
+[data-placeholder]:empty:hover {
+    background-color: #eee;
+    border-radius: 3px;
+}
+
+[data-placeholder]:empty:after {
+    content: attr(data-placeholder);
+    color: #ccc;
+}
+
+[data-placeholder] + .form-control {
+    display: none;
+    height: auto;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+}
+
+[data-placeholder] + .form-control:focus {
+    box-shadow: none;
+}
+
+[data-placeholder].active {
+    display: none;
+}
+
+[data-placeholder].active + .form-control {
+    display: inherit;
+    background-color: #eee;
+}
