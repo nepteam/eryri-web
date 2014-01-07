@@ -1,9 +1,6 @@
 $(function () {
-    wm = new WidgetManager();
+    var wm = new WidgetManager();
 
-    wm.enable('editable');
-
-    m = new Measure(1);
-
-    m.drawBackground();
+    wm.use('editable');
+    wm.get('editable').apply();
 });

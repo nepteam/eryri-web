@@ -27,8 +27,8 @@
 {% for js_com_path in [
     'js/com/raphael.js',
     'js/com/event.js',
-    'js/com/widgets.js',
-    'js/com/measure.js',
+    'js/com/widget-manager.js',
+    'js/com/widget-editable.js',
     'js/m/user.js'
 ] %}<script src="{{ url_for('static', filename=js_com_path) }}"></script>{% endfor %}
 </head>
@@ -64,7 +64,6 @@
             <p class="description" data-widget="editable" data-placeholder="The description of this masterpiece"></p>
         </div>
     </div>
-    <div class="sheet"></div>
 </article>
 </body>
 </html>

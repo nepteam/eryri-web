@@ -1,5 +1,20 @@
 'use strict';
 
+/*!
+ * Melodic JavaScript Library v1.0a
+ * http://github.com/shiroyuki/melodic-js
+ *
+ * Copyright 2014 Juti Noppornpitak
+ * Released under the MIT license
+ * See https://github.com/shiroyuki/melodic-js/blob/master/LICENSE
+ */
+
+/**
+ * Event Emitter
+ *
+ * This is similar to EventEmitter from Node.js by utilizing CustomEvent
+ * available at least by the modern javascript engine.
+ */
 var EventEmitter = function () {};
 
 $.extend(EventEmitter.prototype, {
@@ -43,5 +58,8 @@ $.extend(EventEmitter.prototype, {
     },
     emit: function (type, data) {
         this.dispatchEvent(type, data);
+    },
+    raise: function (message) {
+        throw message;
     }
 });
