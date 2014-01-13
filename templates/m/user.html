@@ -11,26 +11,12 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>{{ app_name }}</title>
-{% for css_ext_path in [
-    'fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,700italic,400italic',
-    'netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'
-] %}<link rel="stylesheet" href="//{{ css_ext_path }}"/>{% endfor %}
-{% for css_loc_path in [
-    'css/common.css',
-    'css/user.css'
-] %}<link rel="stylesheet" href="{{ url_for('static', filename=css_loc_path) }}"/>{% endfor %}
-{% for js_ext_path in [
-    'ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js',
-    'ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js',
-    'netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'
-] %}<script src="//{{ js_ext_path }}"></script>{% endfor %}
-{% for js_com_path in [
-    'js/com/raphael.js',
-    'js/com/event.js',
-    'js/com/widget-manager.js',
-    'js/com/widget-editable.js',
-    'js/m/user.js'
-] %}<script src="{{ url_for('static', filename=js_com_path) }}"></script>{% endfor %}
+<!-- Default -->
+{% include 'part/default-resource.html' %}
+<!-- Local CSS -->
+{{ _css('css/user.css') | safe }}
+<!-- Local JS -->
+{{ _js('js/m/user.js') | safe }}
 </head>
 <body>
 <header class="navbar navbar-default navbar-fixed-top" role="banner">

@@ -1,0 +1,146 @@
+@mixin transition($property, $speed) {
+    -webkit-transition: $property ease $speed;
+    -moz-transition: $property ease $speed;
+    -ms-transition: $property ease $speed;
+    -o-transition: $property ease $speed;
+    transition: $property ease $speed;
+}
+
+@mixin transition_with_delay($property, $speed, $delay) {
+    -webkit-transition: $property ease $speed;
+    -moz-transition: $property ease $speed;
+    -ms-transition: $property ease $speed;
+    -o-transition: $property ease $speed;
+    transition: $property ease $speed;
+}
+
+$navi_background_color: #111;
+$navi_width: 280px;
+
+nav.primary {
+    * {
+        cursor: default;
+    }
+
+    a, a * {
+        cursor: pointer;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .logo {
+        z-index: 0;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        padding: 10px 13px;
+        background-color: #111;
+        color: #fff;
+        border-radius: 150px;
+
+        &:hover {
+            background-color: #33B5E5;
+        }
+    }
+
+    .deactivator {
+        z-index: 1;
+        @include transition(all, 250ms);
+        position: fixed;
+        top: 75px;
+        left: -$navi_width;
+        display: block;
+        background-color: $navi_background_color;
+        padding: 10px;
+        color: #666;
+
+        &:hover {
+            color: #cc0000;
+        }
+    }
+
+    .menus {
+        z-index: 2;
+        @include transition(all, 250ms);
+        position: fixed;
+        background-color: $navi_background_color;
+        color: #fff;
+        width: $navi_width;
+        padding: 0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin-left: -$navi_width;
+
+        .brand {
+            position: relative;
+            display: block;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 10px 10px 35px;
+
+            .icon:after {
+                margin-left: -2px;
+                padding: 1px 5px;
+                content: "E";
+                background-color: #fff;
+                color: #000;
+                border-radius: 10px;
+            }
+        }
+
+        h2 {
+            position: relative;
+            font-size: 14px;
+            color: #333;
+            padding: 10px 10px 10px 35px;
+            margin: 0;
+            font-weight: 200;
+            border-top: 1px solid #222;
+        }
+
+        li {
+            position: relative;
+            padding: 10px 10px 10px 35px;
+            margin: 0;
+
+            a {
+                color: #999;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+
+        .icon {
+            position: absolute;
+            top: 11px;
+            left: 10px;
+            display: block;
+        }
+
+        .text {
+            display: inline-block;
+        }
+    }
+
+    &.activated {
+        .deactivator {
+            left: $navi_width;
+        }
+
+        .menus {
+            margin-left: 0;
+        }
+    }
+}

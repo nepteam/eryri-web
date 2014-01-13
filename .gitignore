@@ -2,6 +2,9 @@
 .project*
 *.komodoproject
 
+# SCSS Cache
+.sass-cache/
+
 # Python cache
 *.py[cod]
 
